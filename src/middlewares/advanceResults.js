@@ -1,5 +1,5 @@
-const Futsal = require("../models/Futsal");
-const { remove } = require("../models/Futsal");
+const Futsal = require("../models/Document");
+const { remove } = require("../models/Document");
 
 const advanceResults = (Model, populateWith) => async (req, res, next) => {
     if(req.query){

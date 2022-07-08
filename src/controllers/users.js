@@ -8,16 +8,16 @@ const asyncHandler = require('../helpers/asyncHandler');
 const User = require('../models/User');
 const ApiError = require('../errors/ApiError');
 
-//@des      Get all futsals
-//@route    GET /api/v1/futsals
+//@des      Get all user
+//@route    GET /api/v1/users
 //@access   Public
 exports.getUsers = asyncHandler( async (req, res, next) => {
     return sendResponse(res, res.advanceResults, 200, 'application/json')
 });
 
 
-//@des      Get single futsals
-//@route    GET /api/v1/futsals/:id
+//@des      Get single user
+//@route    GET /api/v1/users/:id
 //@access   Public
 exports.getUser = asyncHandler( async (req, res, next) => {
     const user = await User.findById(req.params.id);

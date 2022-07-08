@@ -8,7 +8,7 @@ const {
     getMe
 } = require('../controllers/auth');
 const { protect } = require('../middlewares/auth');
-const { route } = require('./futsals');
+const { route } = require('./document');
 
 // Express router
 const router = express.Router();
