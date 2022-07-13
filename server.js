@@ -5,16 +5,8 @@ const cors = require('cors')
 const mongoose = require('mongoose')
 const cookieParser = require('cookie-parser')
 const errorHandler = require('./src/errors/api-error-handler')
-const requestIp = require('request-ip')
 const morgan = require('morgan')
-const rfs = require('rotating-file-stream')
 var fs = require('fs')
-
-// create a rotating write stream
-const accessLogStream = rfs.createStream('access.log', {
-  interval: '1d', // rotate daily
-  path: path.join(__dirname, 'log')
-})
 
 // Initializing environment vairables
 dotenv.config()
@@ -63,9 +55,6 @@ app.use(morgan())
 const documentRoutes = require('./src/routes/document')
 const userRoutes = require('./src/routes/users')
 const authRoutes = require('./src/routes/auth')
-
-// MIddleware for clientIP
-app.use(requestIp.mw())
 
 // Adding routes middlewares
 app.use('/api/v1/document', documentRoutes)
