@@ -4,6 +4,7 @@ const cors = require('cors');
 const mongoose = require('mongoose')
 const cookieParser = require('cookie-parser');
 const errorHandler = require('./src/errors/api-error-handler');
+const fileupload = require('express-fileupload'); 
 
 
 // Initializing environment vairables
@@ -42,14 +43,17 @@ app.use(cors(corsOptions));
 const documentRoutes = require('./src/routes/document');
 const userRoutes = require('./src/routes/users');
 const authRoutes = require('./src/routes/auth');
+const photoRoutes = require('./src/routes/photo');
 
 
 // Adding routes middlewares
 app.use('/api/v1/document', documentRoutes);
 app.use('/api/v1/users', userRoutes);
 app.use('/api/v1/auth', authRoutes);
+app.use('/api/v1/photo',photoRoutes);
 
 
+app.use(fileupload({useTempFiles: true}))
 // Error handler 
 app.use(errorHandler);
 
