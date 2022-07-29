@@ -18,7 +18,7 @@ const Photo = require('../models/photo');
 
 router
   .route('/')
-  .post(upload.single("image"), createPhoto);
+  .post(upload.array("image"), createPhoto);
 
 // photo.get("/", async (req, res) => {
 //   try {
