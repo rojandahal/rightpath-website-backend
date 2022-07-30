@@ -23,7 +23,7 @@ const sendTokenResponse = (user, statusCode, res) => {
     },
     statusCode,
     'application/json',
-    (setCookie = false),
+    (setCookie = process.env.NODE_ENV ? true : false),
     (options = options)
   )
 }
