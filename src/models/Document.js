@@ -27,8 +27,8 @@ const DocumentSchema = new mongoose.Schema({
         required: [true, 'Address is required.']
     },
     photo: {
-        type: String,
-        default: 'no-photo.jpg'
+        type: mongoose.Schema.ObjectId,
+        required: [true, 'Photos Needed']
     },
     createdAt: {
         type: Date,
