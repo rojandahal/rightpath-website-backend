@@ -6,9 +6,18 @@ const cookieParser = require("cookie-parser");
 const errorHandler = require("./src/errors/api-error-handler");
 
 // Initializing environment vairables
-dotenv.config();
+dotenv.config()
 
 const app = express();
+
+// log all requests to access.log
+app.use(
+  morgan('combined', {
+    stream: fs.createWriteStream(path.join(__dirname, 'access.log'), {
+      flags: 'a'
+    })
+  })
+)
 
 //Connect to database
 //Body parser
