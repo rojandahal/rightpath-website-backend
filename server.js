@@ -5,8 +5,8 @@ const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 const errorHandler = require("./src/errors/api-error-handler");
 const morgan = require("morgan");
-const fs = require("fs");
-const path = require("path")
+// const fs = require("fs");
+// const path = require("path")
 
 // Initializing environment vairables
 dotenv.config()
@@ -14,13 +14,13 @@ dotenv.config()
 const app = express();
 
 // log all requests to access.log
-app.use(
-  morgan('combined', {
-    stream: fs.createWriteStream(path.join(__dirname, 'access.log'), {
-      flags: 'a'
-    })
-  })
-)
+// app.use(
+//   morgan('combined', {
+//     stream: fs.createWriteStream(path.join(__dirname, 'access.log'), {
+//       flags: 'a'
+//     })
+//   })
+// )
 
 //Connect to database
 //Body parser
