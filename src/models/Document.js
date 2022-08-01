@@ -26,9 +26,27 @@ const DocumentSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Address is required.']
     },
-    photo: {
-        type: mongoose.Schema.ObjectId,
-        required: [true, 'Photos Needed']
+    // photo: {
+    //     type: mongoose.Schema.ObjectId,
+    // },
+    passportNo: {
+        type: String
+    },
+    levelStudy: {
+        type: String
+    },
+    desiredCountry: {
+        type: String
+    },
+    desiredCourse: {
+        type: String
+    },
+    desiredCoLevel: {
+        type: String
+    },
+    courseReq: {
+        type: String,
+        enum: ["IELTS", "PTE"],
     },
     createdAt: {
         type: Date,
