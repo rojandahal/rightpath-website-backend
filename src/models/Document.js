@@ -46,7 +46,8 @@ const DocumentSchema = new mongoose.Schema({
     },
     courseReq: {
         type: String,
-        enum: ["IELTS", "PTE"],
+        enum: ["IELTS", "PTE", ""],
+        default: [""]
     },
     createdAt: {
         type: Date,
