@@ -25,8 +25,15 @@ const app = express();
 //Connect to database
 //Body parser
 // Use of cors
+const whitelist = ['https://dahalrojan.com.np/', 'https://dahalrojan.com.np']
 const corsOptions = {
-  origin: ["https://dahalrojan.com.np/", "https://dahalrojan.com.np"],
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  },
   credentials: true, //access-control-allow-credentials:true
   optionSuccessStatus: 200,
 };
