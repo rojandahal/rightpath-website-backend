@@ -25,7 +25,7 @@ const app = express();
 //Connect to database
 //Body parser
 // Use of cors
-const whitelist = ['https://dahalrojan.com.np/', 'https://dahalrojan.com.np']
+const whitelist = ['http://localhost:3000', 'http://localhost:3000/']
 const corsOptions = {
   origin: function (origin, callback) {
     if (whitelist.indexOf(origin) !== -1) {
