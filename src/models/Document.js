@@ -49,6 +49,11 @@ const DocumentSchema = new mongoose.Schema({
         enum: ["IELTS", "PTE", ""],
         default: [""]
     },
+    status: {
+        type: String,
+        enum: ["unprocessed", "processed"],
+        default: ["unprocessed"]
+    },
     createdAt: {
         type: Date,
         default: Date.now

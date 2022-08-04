@@ -5,7 +5,8 @@ const {
     getDocuments,
     getDocument,
     createDocument,
-    deleteDocument
+    deleteDocument,
+    updateDocument
 } = require('../controllers/documents');
 
 // Express router
@@ -28,6 +29,7 @@ router
 router
     .route('/:id')
     .get(protect, authorization('admin'),getDocument)
+    .put(protect, authorization('admin'), updateDocument)
     .delete(protect, authorization('admin'), deleteDocument)
 
 

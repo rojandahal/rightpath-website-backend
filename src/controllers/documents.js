@@ -51,36 +51,34 @@ exports.createDocument = asyncHandler( async (req, res, next) => {
 
 
 
-/* No update Required */
-
-// //@des      Update futsal 
-// //@route    PUT /api/v1//:id
-// //@access   Private: [admin, owner]
-// exports.updateFutsal = asyncHandler( async (req, res, next) => {
-//     let futsal = await Futsal.findById(req.params.id);
+//@des      Update Document 
+//@route    PUT /api/v1//:id
+//@access   Private: [admin, owner]
+exports.updateDocument = asyncHandler( async (req, res, next) => {
+    let doc = await Document.findById(req.params.id);
     
-//     if(!futsal){
-//         return next(
-//             new ApiError(400, `Futsal of id ${req.params.id} couldn't be found.`)
-//             )
-//     }
+    if(!doc){
+        return next(
+            new ApiError(400, `Document of id ${req.params.id} couldn't be found.`)
+            )
+    }
     
-//     if(futsal.user.toString() !== req.user.id && req.user.role !== 'admin'){
-//         return next(
-//             ApiError.unauthorized(`User of id ${req.user.id} is unauthorized.`)
-//         )
-//     }
+    if(doc.user.toString() !== req.user.id && req.user.role !== 'admin'){
+        return next(
+            ApiError.unauthorized(`User of id ${req.user.id} is unauthorized.`)
+        )
+    }
 
-//     futsal = await Futsal.findByIdAndUpdate(req.params.id, req.body, {
-//         new: true, 
-//         runValidators: true
-//     })
+    doc = await Document.findByIdAndUpdate(req.params.id, req.body, {
+        new: true, 
+        runValidators: true
+    })
 
-//     return sendResponse(res, {
-//         status: "Sucess",
-//         data: futsal
-//     }, 200, 'application/json')
-//     });
+    return sendResponse(res, {
+        status: "Sucess",
+        data: doc
+    }, 200, 'application/json')
+    });
 
     
 //@des      Delete document 
