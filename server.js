@@ -26,10 +26,13 @@ const app = express();
 //Body parser
 // Use of cors
 const corsOptions = {
-  origin: "https://www.dahalrojan.com.np",
+  origin: true,
   credentials: true, //access-control-allow-credentials:true
   optionSuccessStatus: 200,
+  headers: "content-type",
+  methods: ["GET", "POST", "PUT", "DELETE"]
 };
+app.options("*",cors(corsOptions));
 app.use(cors(corsOptions));
 app.use(express.json());
 
