@@ -9,7 +9,7 @@ const errorHandler = require("./src/errors/api-error-handler");
 // const path = require("path")
 
 // Initializing environment vairables
-dotenv.config()
+dotenv.config();
 
 const app = express();
 
@@ -26,7 +26,7 @@ const app = express();
 //Body parser
 // Use of cors
 const corsOptions = {
-  origin: "https://dahalrojan.com.np",
+  origin: ["https://dahalrojan.com.np/", "https://dahalrojan.com.np"],
   credentials: true, //access-control-allow-credentials:true
   optionSuccessStatus: 200,
 };
