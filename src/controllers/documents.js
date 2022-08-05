@@ -93,7 +93,7 @@ exports.deleteDocument = asyncHandler( async (req, res, next) => {
             )
     }
     
-    if(doc.user.toString() !== req.user.id && req.user.role !== 'admin'){
+    if(req.user.role !== 'admin'){
         return next(
             ApiError.unauthorized(`User of id ${req.user.id} is unauthorized.`)
         )
